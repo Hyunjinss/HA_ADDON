@@ -9,9 +9,8 @@ COPY run.sh /
 COPY js /js
 
 # Install requirements for add-on
-RUN apk add --no-cache jq npm make gcc g++ linux-headers udev && \
-    npm init -f && \
-    npm install mqtt
+RUN apt-get update && apt-get -y install jq npm make gcc g++ udev
+#RUN apk add --no-cache jq npm make gcc g++ linux-headers udev && \    npm init -f && \    npm install mqtt
 
 WORKDIR /share
 
